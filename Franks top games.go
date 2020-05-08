@@ -9,7 +9,7 @@ import (
   "fmt"
   "math/rand"
   "time"
-  //"strconv"
+  "strconv"
 )
 
 // create a struct for game info objects to include number, hours played, name, genre, and synopsis
@@ -21,11 +21,11 @@ type ginfo struct {
 }
 
 // create a function that can pick a random number and can convert to string to use in if statements later
-func randPick(answer int) (int) {
+func randPick(answer string) (string) {
  rand.Seed(time.Now().UnixNano())
- n := (rand.Intn(24))
- //number := strconv.Itoa(n)
- return n
+ n := (rand.Intn(24)+1)
+ number := strconv.Itoa(n)
+ return number
 }
 
 // create your main func inlcude all objects and classes for games and info needed.
@@ -211,14 +211,14 @@ func main (){
  var x string
  
  // inside main: print initial game info to include number and name for user  to make a selection
- for i:=0; i<24; i++{
-   fmt.Println(game[i])
+ for i:=0; i<=24; i++{
+   fmt.Println(game[i].Number, game[i].Name)
  }
 
  // inside main: print statement to explain how program works and how to work program
  fmt.Println("Above is a list of games played by me and the number associated with them in order from most played game down to least played. Please enter the game you would like to know more about by entering the associated number. You may also select 'random' if you need help picking somewhere to start.You may also type 'done' to end the program.")
  fmt.Scanln(&x)
- x = x-1
+ 
  // inside main: create loop that continues until user types "done"as selection or some itteration to complete program.
  for x != "Done" && x != "done" && x != "DONE" {
    // inside loop in main have loop to use rand func to get a random number as a string.
@@ -230,60 +230,61 @@ func main (){
 
     // inside itial loop until "done": after random, or if number selection made use if statements to get the appropriate info from selection to display 
     if x == "1" {
-      fmt.Println("#",game1.Number,game1.Name,"hours played:",game1.Hrs,"\n","genre:",game1.Genre,"\n","synopsis:",game1.Synopsis)
+      fmt.Println("#",game[0].Number,game[0].Name,"hours played:",game[0].Hrs,"\n","genre:",game[0].Genre,"\n","synopsis:",game[0].Synopsis)
     }else if x == "2" {
-      fmt.Println("#",game2.Number,game2.Name,"hours played:",game2.Hrs,"\n","genre:",game2.Genre,"\n","synopsis:",game2.Synopsis)
+      fmt.Println("#",game[1].Number,game[1].Name,"hours played:",game[1].Hrs,"\n","genre:",game[1].Genre,"\n","synopsis:",game[1].Synopsis)
     }else if x == "3" {
-      fmt.Println("#",game3.Number,game3.Name,"hours played:",game3.Hrs,"\n","genre:",game3.Genre,"\n","synopsis:",game3.Synopsis)
+      fmt.Println("#",game[2].Number,game[2].Name,"hours played:",game[2].Hrs,"\n","genre:",game[2].Genre,"\n","synopsis:",game[2].Synopsis)
     }else if x == "4" {
-      fmt.Println("#",game4.Number,game4.Name,"hours played:",game4.Hrs,"\n","genre:",game4.Genre,"\n","synopsis:",game4.Synopsis)
+      fmt.Println("#",game[3].Number,game[3].Name,"hours played:",game[3].Hrs,"\n","genre:",game[3].Genre,"\n","synopsis:",game[3].Synopsis)
     }else if x == "5" {
-      fmt.Println("#",game5.Number,game5.Name,"hours played:",game5.Hrs,"\n","genre:",game5.Genre,"\n","synopsis:",game5.Synopsis)
+      fmt.Println("#",game[4].Number,game[4].Name,"hours played:",game[4].Hrs,"\n","genre:",game[4].Genre,"\n","synopsis:",game[4].Synopsis)
     }else if x == "6" {
-      fmt.Println("#",game6.Number,game6.Name,"hours played:",game6.Hrs,"\n","genre:",game6.Genre,"\n","synopsis:",game6.Synopsis)
+      fmt.Println("#",game[5].Number,game[5].Name,"hours played:",game[5].Hrs,"\n","genre:",game[5].Genre,"\n","synopsis:",game[5].Synopsis)
     }else if x == "7" {
-      fmt.Println("#",game7.Number,game7.Name,"hours played:",game7.Hrs,"\n","genre:",game7.Genre,"\n","synopsis:",game7.Synopsis)
+      fmt.Println("#",game[6].Number,game[6].Name,"hours played:",game[6].Hrs,"\n","genre:",game[6].Genre,"\n","synopsis:",game[6].Synopsis)
     }else if x == "8" {
-      fmt.Println("#",game8.Number,game8.Name,"hours played:",game8.Hrs,"\n","genre:",game8.Genre,"\n","synopsis:",game8.Synopsis)
+      fmt.Println("#",game[7].Number,game[7].Name,"hours played:",game[7].Hrs,"\n","genre:",game[7].Genre,"\n","synopsis:",game[7].Synopsis)
     }else if x == "9" {
-      fmt.Println("#",game9.Number,game9.Name,"hours played:",game9.Hrs,"\n","genre:",game9.Genre,"\n","synopsis:",game9.Synopsis)
+      fmt.Println("#",game[8].Number,game[8].Name,"hours played:",game[8].Hrs,"\n","genre:",game[8].Genre,"\n","synopsis:",game[8].Synopsis)
     }else if x == "10" {
-      fmt.Println("#",game10.Number,game10.Name,"hours played:",game10.Hrs,"\n","genre:",game10.Genre,"\n","synopsis:",game10.Synopsis)
+      fmt.Println("#",game[9].Number,game[9].Name,"hours played:",game[9].Hrs,"\n","genre:",game[9].Genre,"\n","synopsis:",game[9].Synopsis)
     }else if x == "11" {
-      fmt.Println("#",game11.Number,game11.Name,"hours played:",game11.Hrs,"\n","genre",game11.Genre,"synopsis:",game11.Synopsis)
+      fmt.Println("#",game[10].Number,game[10].Name,"hours played:",game[10].Hrs,"\n","genre",game[10].Genre,"synopsis:",game[10].Synopsis)
     }else if x == "12" {
-      fmt.Println("#",game12.Number,game12.Name,"hours played:",game12.Hrs,"\n","genre:",game12.Genre,"\n","synopsis:",game12.Synopsis)
+      fmt.Println("#",game[11].Number,game[11].Name,"hours played:",game[11].Hrs,"\n","genre:",game[11].Genre,"\n","synopsis:",game[11].Synopsis)
     }else if x == "13" {
-      fmt.Println("#",game13.Number,game13.Name,"hours played:",game13.Hrs,"\n","genre:",game13.Genre,"\n","synopsis:",game13.Synopsis)
+      fmt.Println("#",game[12].Number,game[12].Name,"hours played:",game[12].Hrs,"\n","genre:",game[12].Genre,"\n","synopsis:",game[12].Synopsis)
     }else if x == "14" {
-      fmt.Println("#",game14.Number,game14.Name,"hours played:",game14.Hrs,"\n","genre:",game14.Genre,"\n","synopsis:",game14.Synopsis)
+      fmt.Println("#",game[13].Number,game[13].Name,"hours played:",game[13].Hrs,"\n","genre:",game[13].Genre,"\n","synopsis:",game[13].Synopsis)
     }else if x == "15" {
-      fmt.Println("#",game15.Number,game15.Name,"hours played:",game15.Hrs,"\n","genre:",game15.Genre,"\n","synopsis:",game15.Synopsis)
+      fmt.Println("#",game[14].Number,game[14].Name,"hours played:",game[14].Hrs,"\n","genre:",game[14].Genre,"\n","synopsis:",game[14].Synopsis)
     }else if x == "16" {
-      fmt.Println("#",game16.Number,game16.Name,"hours played:",game16.Hrs,"\n","genre:",game16.Genre,"\n","synopsis:",game16.Synopsis)
+      fmt.Println("#",game[15].Number,game[15].Name,"hours played:",game[15].Hrs,"\n","genre:",game[15].Genre,"\n","synopsis:",game[15].Synopsis)
     }else if x == "17" {
-      fmt.Println("#",game17.Number,game17.Name,"hours played:",game17.Hrs,"\n","genre:",game17.Genre,"\n","synopsis:",game17.Synopsis)
+      fmt.Println("#",game[16].Number,game[16].Name,"hours played:",game[16].Hrs,"\n","genre:",game[16].Genre,"\n","synopsis:",game[16].Synopsis)
     }else if x == "18" {
-      fmt.Println("#",game18.Number,game18.Name,"hours played:",game18.Hrs,"\n","genre:",game18.Genre,"\n","synopsis:",game18.Synopsis)
+      fmt.Println("#",game[17].Number,game[17].Name,"hours played:",game[17].Hrs,"\n","genre:",game[17].Genre,"\n","synopsis:",game[17].Synopsis)
     }else if x == "19" {
-      fmt.Println("#",game19.Number,game19.Name,"hours played:",game19.Hrs,"\n","genre:",game19.Genre,"\n","synopsis:",game19.Synopsis)
+      fmt.Println("#",game[18].Number,game[18].Name,"hours played:",game[18].Hrs,"\n","genre:",game[18].Genre,"\n","synopsis:",game[18].Synopsis)
     }else if x == "20" {
-      fmt.Println("#",game20.Number,game20.Name,"hours played:",game20.Hrs,"\n","genre:",game20.Genre,"\n","synopsis:",game20.Synopsis)
+      fmt.Println("#",game[19].Number,game[19].Name,"hours played:",game[19].Hrs,"\n","genre:",game[19].Genre,"\n","synopsis:",game[19].Synopsis)
     }else if x == "21" {
-      fmt.Println("#",game21.Number,game21.Name,"hours played:",game21.Hrs,"\n","genre:",game21.Genre,"\n","synopsis:",game21.Synopsis)
+      fmt.Println("#",game[20].Number,game[20].Name,"hours played:",game[20].Hrs,"\n","genre:",game[20].Genre,"\n","synopsis:",game[20].Synopsis)
     }else if x == "22" {
-      fmt.Println("#",game22.Number,game22.Name,"hours played:",game22.Hrs,"\n","genre:",game22.Genre,"\n","synopsis:",game22.Synopsis)
+      fmt.Println("#",game[21].Number,game[21].Name,"hours played:",game[21].Hrs,"\n","genre:",game[21].Genre,"\n","synopsis:",game[21].Synopsis)
     }else if x == "23" {
-      fmt.Println("#",game23.Number,game23.Name,"hours played:",game23.Hrs,"\n","genre:",game23.Genre,"\n","synopsis:",game23.Synopsis)
+      fmt.Println("#",game[22].Number,game[22].Name,"hours played:",game[22].Hrs,"\n","genre:",game[22].Genre,"\n","synopsis:",game[22].Synopsis)
     }else if x == "24" {
-      fmt.Println("#",game24.Number,game24.Name,"hours played:",game24.Hrs,"\n","genre:",game24.Genre,"\n","synopsis:",game24.Synopsis)
+      fmt.Println("#",game[23].Number,game[23].Name,"hours played:",game[23].Hrs,"\n","genre:",game[23].Genre,"\n","synopsis:",game[23].Synopsis)
     }else if x == "25" {
-      fmt.Println("#",game25.Number,game25.Name,"hours played:",game25.Hrs,"\n","genre:",game25.Genre,"\n","synopsis:",game25.Synopsis)
+      fmt.Println("#",game[24].Number,game[24].Name,"hours played:",game[24].Hrs,"\n","genre:",game[24].Genre,"\n","synopsis:",game[24].Synopsis)
     }
     
      // prompt for new selection after appropriate info displayed before repeating loop or ending program
-    fmt.Println("Please enter the game you would like to know more about by entering the associated number. You may also select 'random' if you need help picking somewhere to start.You may also type 'done' to end the program.")
-    fmt.Println(game1.Number,game1.Name,"\n",game2.Number,game2.Name,"\n",game3.Number,game3.Name,"\n",game4.Number,game4.Name,"\n",game5.Number,game5.Name,"\n",game6.Number,game6.Name,"\n",game7.Number,game7.Name,"\n",game8.Number,game8.Name,"\n",game9.Number,game9.Name,"\n",game10.Number,game10.Name,"\n",game11.Number,game11.Name,"\n",game12.Number,game12.Name,"\n",game13.Number,game13.Name,"\n",game14.Number,game14.Name,"\n",game15.Number,game15.Name,"\n",game16.Number,game16.Name,"\n",game17.Number,game17.Name,"\n",game18.Number,game18.Name,"\n",game19.Number,game19.Name,"\n",game20.Number,game20.Name,"\n",game21.Number,game21.Name,"\n",game22.Number,game22.Name,"\n",game23.Number,game23.Name,"\n",game24.Number,game24.Name,"\n",game25.Number,game25.Name)
+    for i:=0; i<=24; i++{
+     fmt.Println(game[i].Number, game[i].Name)
+    }
     fmt.Scanln(&x)
     }
 
