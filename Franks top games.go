@@ -10,11 +10,12 @@ import (
   "math/rand"
   "time"
   "strconv"
+  "strings"
 )
 
 // create a struct for game info objects to include number, hours played, name, genre, and synopsis
 type ginfo struct {
-  Number  int
+  Number  string
   Hrs float64
   Name, Genre, Synopsis string
 
@@ -32,175 +33,175 @@ func randPick(answer string) (string) {
 func main (){
  var game[25]ginfo
   game[0] = ginfo{
-    Number: 1,
+    Number: "1",
     Name: "Banished",
     Hrs: 349,
     Genre: "Simulation, Stragey, City Builder",
     Synopsis: "You and a group of exiled travelers who decide to restart their lives in a new land. They have only the clothes on their backs and a cart filled with supplies from their homeland. The townspeople of Banished are your primary resource. You must build, survive, and if you’re good enough, thrive.",
   }
   game[1] = ginfo{
-    Number: 2,
+    Number: "2",
     Name:	"Dota 2",
     Hrs: 142,
     Genre: "MOBA, strategy",
     Synopsis: "Primary game mode is player vs player (PvP) where two teams of five battle against one another with waves of computer minions to help you push a “lane” guarded by other players, their minions, and towers.",
   }
   game[2] = ginfo{
-    Number: 3,
+    Number: "3",
     Name: "Mini Ninja’s",
     Hrs: 94,
     Genre: "action, adventure, indie",
     Synopsis: "Mini Ninjas is a game that combines furious action with stealth and exploration for an experience that appeals to a wide audience across age groups and preferences. Set with a ninja oriental theme. Fight against the darkness that is attacking your home and the ones you know and love.",
   }
   game[3] = ginfo{
-    Number: 4,
+    Number: "4",
     Name: "The Elder Scrolls V: Skyrim",
     Hrs: 79,
     Genre: "Open world, RPG, first person",
     Synopsis: "Dragons were thought to be extinct. You, a prisoner, survive and attack by a dragon and find out that you are a “dragonborn”. One who can speak the dragon language and use their shouts, a special ability/magic. You can create a character with tons of customization options and explore and play the game anyway you desire with the vast open world with plenty of choice and quests to take.",
   }
   game[4] = ginfo{
-    Number: 5,
+    Number: "5",
     Name: "Sid Meier's Civilization V",
     Hrs: 62,
     Genre: "Turn-based strategy, 4x",
     Synopsis: "Play one of history’s greatest civilizations. Employ diplomatic, research, and military strategies to be the best civilization and win, choosing from many maps and map sizes for the set of your theatre.",
   }
   game[5] = ginfo{
-    Number: 6,
+    Number: "6",
     Name: "Borderlands 2",
     Hrs: 55,
     Genre: "open world, RPG, first person",
     Synopsis: "Play as one of four vault hunters facing off against a massive world of creatures, psychos and the evil mastermind, Handsome Jack. Make new friends, arm them with a bazillion weapons to help you on your adventure.",
   }
   game[6] = ginfo{
-    Number: 7,
+    Number: "7",
     Name: "Company of Heroes-Legacy edition",
     Hrs: 51,
     Genre: "real-time strategy",
     Synopsis: "Delivering a visceral WWII gaming experience, Company of Heroes redefines real time strategy gaming by bringing the sacrifice of heroic soldiers, war-ravaged environments, and dynamic battlefields to life. Beginning with the D-Day Invasion of Normandy, players lead squads of Allied soldiers into battle against the German war machine through some of the most pivotal battles of WWII. Through a rich single player campaign, players experience the cinematic intensity and bravery of ordinary soldiers thrust into extraordinary events.",
   }
   game[7] = ginfo{
-    Number: 8,
+    Number: "8",
     Name: "PAYDAY 2",
     Hrs: 47,
     Genre: "First person shooter, strategy/heist",
     Synopsis: "Team up with up to four friends or other online players to take on heists and earn money, buy weapons, and customize your gear to help you be successful.",
   }
   game[8] = ginfo{
-    Number: 9,
+    Number: "9",
     Name: "The Forest",
     Hrs: 47,
     Genre: "Survival, horror, PVE",
     Synopsis: "Your plane crash lands on this beautiful island with a lush environment. You awake after the crash landing, only remembering your son calling out to you as he is dragged away, having blurry vision you don’t remember many details. You need to build some shelter and a base camp for your exploration. Soon after establishing some semblance of a shelter you see something off in the distance scoping out your new home. It’s a savage tribal inhabitant that you soon find out is a cannibal. You need to hurry and find your son and find a way off the island.",
   }
   game[9] = ginfo{
-    Number: 10,
+    Number: "10",
     Name: "Endless Legend",
     Hrs: 45,
     Genre: "Turn-based strategy, 4X",
     Synopsis: ": Play as one of many civilizations, or create one of your own. Employ diplomatic, research, and military strategies to be the best civilization and win. Select diverse maps and setting to help make every skirmish unique and challenging.",
   }
   game[10] = ginfo{
-    Number: 11,
+    Number: "11",
     Name: "Unturned",
     Hrs: 34,
     Genre: "survival, PVE, PVP",
     Synopsis: "Create or join a world in which you survive the zombie apocalypse.",
   }
   game[11] = ginfo{
-    Number: 12,
+    Number: "12",
     Name: "Tales of Zestiria",
     Hrs: 33,
     Genre: "action, RPG, anime style",
     Synopsis: "In a world torn by war and political skirmishes, accept the burden of the Shepherd and fight human darkness to protect your world from Malevolence and reunite humans and Seraphim.",
   }
   game[12] = ginfo{
-    Number: 13,
+    Number: "13",
     Name: "South Park™: The Stick of Truth™",
     Hrs: 33,
     Genre: "turn-based strategy, RPG",
     Synopsis: "From the perilous battlefields of the fourth-grade playground, a young hero will rise, destined to be South Park’s savior. From the creators of South Park, Trey Parker and Matt Stone, comes an epic quest to become… cool. Introducing South Park™: The Stick of Truth™.",
   }
   game[13] = ginfo{
-    Number: 14,
+    Number: "14",
     Name: "Endless Space",
     Hrs: 28,
     Genre: "turn-based strategy, 4X",
     Synopsis: "Covering the space colonization age in the Endless universe, where you can control every aspect of your civilization as you strive for galactic domination.",
   }
   game[14] = ginfo{
-    Number: 15,
+    Number: "15",
     Name: "Kerbal Space Program",
     Hrs: 27,
     Genre: "simulation, sandbox",
     Synopsis: ": In Kerbal Space Program, take charge of the space program for the alien race known as the Kerbals. You have access to an array of parts to assemble fully-functional spacecraft that flies (or doesn’t) based on realistic aerodynamic and orbital physics.",
   }
   game[15] = ginfo{
-    Number: 16,
+    Number: "16",
     Name: "ARK: Survival Evolved",
     Hrs: 26,
     Genre: "survival, PVE, PVP",
     Synopsis: "Stranded on the shores of a mysterious island, you must learn to survive. Use your cunning to kill or tame the primeval creatures roaming the land, and encounter other players to survive, dominate... and escape!",
   }
   game[16] = ginfo{
-    Number: 17,
+    Number: "17",
     Name: "Sid Meier's Civilization VI",
     Hrs: 25,
     Genre: "turn-based strategy, 4x",
     Synopsis: "a turn-based strategy game in which you attempt to build an empire to stand the test of time. Become Ruler of the World by establishing and leading a civilization from the Stone Age to the Information Age. Wage war, conduct diplomacy, advance your culture, and go head-to-head with history’s greatest leaders as you attempt to build the greatest civilization the world has ever known. Competing leaders will pursue their own agendas based on their historical traits as you race for one of five ways to achieve victory in the game.",
   }
   game[17] = ginfo{
-    Number: 18,
+    Number: "18",
     Name: "Left 4 dead 2",
     Hrs: 23,
     Genre: "survival, first person",
     Synopsis: "Set in the zombie apocalypse, Left 4 Dead 2 (L4D2) is the highly anticipated sequel to the award-winning Left 4 Dead. This co-operative action horror FPS takes you and your friends through the cities, swamps and cemeteries of the Deep South, from Savannah to New Orleans across five expansive campaigns. You'll play as one of four new survivors armed with a wide and devastating array of classic and upgraded weapons. In addition to firearms, you'll also get a chance to take out some aggression on infected with a variety of carnage-creating melee weapons, from chainsaws to axes and even the deadly frying pan.",
   }
   game[18] = ginfo{
-    Number: 19,
+    Number: "19",
     Name: "Planetary Annihilation: TITANS",
     Hrs: 22,
     Genre: "real-time strategy",
     Synopsis: "Wage war across entire solar systems with massive armies at your command. Annihilate enemy forces with world-shattering TITAN-class units, and demolish planets with massive super weapons!",
   }
   game[19] = ginfo{
-    Number: 20,
+    Number: "20",
     Name: "Final Fantasy IV",
     Hrs: 19.8,
     Genre: "RPG",
     Synopsis: "it is the fourth main installment of the Final Fantasy series. The game's story follows Cecil, a dark knight, as he tries to prevent the sorcerer Golbez from seizing powerful crystals and destroying the world",
   }
   game[20] = ginfo{
-    Number: 21,
+    Number: "21",
     Name: "South Park™: The Fractured But Whole™",
     Hrs: 19.3,
     Genre: "turn-based strategy, RPG",
     Synopsis: "Players will delve into the crime-ridden underbelly of South Park with Coon and Friends. This dedicated group of crime fighters was formed by Eric Cartman whose superhero alter-ego, The Coon, is half man, half raccoon. As the New Kid, players will join Mysterion, Toolshed, Human Kite and a host of others to battle the forces of evil while Coon strives to make his team the most beloved superheroes in history.",
   }
   game[21] = ginfo{
-    Number: 22,
+    Number: "22",
     Name: "Total War: Shogun 2",
     Hrs: 18.8,
     Genre: "turn-based strategy, real-time strategy",
     Synopsis: "In the darkest age of Japan, endless war leaves a country divided. It is the middle of the 16th Century in Feudal Japan. The country, once ruled by a unified government, is now split into many warring clans. Ten legendary warlords strive for supremacy as conspiracies and conflicts wither the empire. Only one will rise above all to win the heart of a nation as the new shogun...The others will die by his sword.Take on the role of one Daimyo, the clan leader, and use military engagements, economics and diplomacy to achieve the ultimate goal: re-unite Japan under his supreme command and become the new Shogun – the undisputed ruler of a pacified nation.",
   }
   game[22] = ginfo{
-    Number: 23,
+    Number: "23",
     Name: "Planetbase",
     Hrs: 17.4,
     Genre: "strategy, survival, simulation, city builder",
     Synopsis: "Guide a group of space settlers trying to establish a base on a remote planet. Grow food, collect energy, mine resources, survive disasters and build a self-sufficient colony in a harsh and unforgiving environment.",
   }
   game[23] = ginfo{
-    Number: 24,
+    Number: "24",
     Name: "Dead by Daylight",
     Hrs: 16.5,
     Genre: "horror, action, survival",
     Synopsis: "a multiplayer (4vs1) horror game where one player takes on the role of the savage Killer, and the other four players play as Survivors, trying to escape the Killer and avoid being caught and killed.",
   }
   game[24] = ginfo{
-    Number: 25,
+    Number: "25",
     Name: "Anno 2077",
     Hrs: 16,
     Genre: "real-time strategy, simulation, city builder",
@@ -218,75 +219,34 @@ func main (){
  // inside main: print statement to explain how program works and how to work program
  fmt.Println("Above is a list of games played by me and the number associated with them in order from most played game down to least played. Please enter the game you would like to know more about by entering the associated number. You may also select 'random' if you need help picking somewhere to start.You may also type 'done' to end the program.")
  fmt.Scanln(&x)
+ // convert answer to title to take any answer and make sure it reads the same everytime.
+ x = strings.Title(x)
+ fmt.Println(x)
  
+ // create a variable for loop to use as a counter
+ l := 0
  // inside main: create loop that continues until user types "done"as selection or some itteration to complete program.
- for x != "Done" && x != "done" && x != "DONE" {
-   // inside loop in main have loop to use rand func to get a random number as a string.
-    for x == "random" || x == "Random" || x == "RANDOM" {
+ for x != "Done"{
+   for i :=0; i<=24; i++{ 
+    if x == "Random"{
      X := randPick(x)
      fmt.Println("The random number you are given is",X)
      x = X
+    }else if x == game[i].Number{
+      fmt.Println("#",game[l].Number,game[l].Name,"hours played:",game[l].Hrs,"\n","genre:",game[l].Genre,"\n","synopsis:",game[l].Synopsis)
+      i=25
     }
-
-    // inside itial loop until "done": after random, or if number selection made use if statements to get the appropriate info from selection to display 
-    if x == "1" {
-      fmt.Println("#",game[0].Number,game[0].Name,"hours played:",game[0].Hrs,"\n","genre:",game[0].Genre,"\n","synopsis:",game[0].Synopsis)
-    }else if x == "2" {
-      fmt.Println("#",game[1].Number,game[1].Name,"hours played:",game[1].Hrs,"\n","genre:",game[1].Genre,"\n","synopsis:",game[1].Synopsis)
-    }else if x == "3" {
-      fmt.Println("#",game[2].Number,game[2].Name,"hours played:",game[2].Hrs,"\n","genre:",game[2].Genre,"\n","synopsis:",game[2].Synopsis)
-    }else if x == "4" {
-      fmt.Println("#",game[3].Number,game[3].Name,"hours played:",game[3].Hrs,"\n","genre:",game[3].Genre,"\n","synopsis:",game[3].Synopsis)
-    }else if x == "5" {
-      fmt.Println("#",game[4].Number,game[4].Name,"hours played:",game[4].Hrs,"\n","genre:",game[4].Genre,"\n","synopsis:",game[4].Synopsis)
-    }else if x == "6" {
-      fmt.Println("#",game[5].Number,game[5].Name,"hours played:",game[5].Hrs,"\n","genre:",game[5].Genre,"\n","synopsis:",game[5].Synopsis)
-    }else if x == "7" {
-      fmt.Println("#",game[6].Number,game[6].Name,"hours played:",game[6].Hrs,"\n","genre:",game[6].Genre,"\n","synopsis:",game[6].Synopsis)
-    }else if x == "8" {
-      fmt.Println("#",game[7].Number,game[7].Name,"hours played:",game[7].Hrs,"\n","genre:",game[7].Genre,"\n","synopsis:",game[7].Synopsis)
-    }else if x == "9" {
-      fmt.Println("#",game[8].Number,game[8].Name,"hours played:",game[8].Hrs,"\n","genre:",game[8].Genre,"\n","synopsis:",game[8].Synopsis)
-    }else if x == "10" {
-      fmt.Println("#",game[9].Number,game[9].Name,"hours played:",game[9].Hrs,"\n","genre:",game[9].Genre,"\n","synopsis:",game[9].Synopsis)
-    }else if x == "11" {
-      fmt.Println("#",game[10].Number,game[10].Name,"hours played:",game[10].Hrs,"\n","genre",game[10].Genre,"synopsis:",game[10].Synopsis)
-    }else if x == "12" {
-      fmt.Println("#",game[11].Number,game[11].Name,"hours played:",game[11].Hrs,"\n","genre:",game[11].Genre,"\n","synopsis:",game[11].Synopsis)
-    }else if x == "13" {
-      fmt.Println("#",game[12].Number,game[12].Name,"hours played:",game[12].Hrs,"\n","genre:",game[12].Genre,"\n","synopsis:",game[12].Synopsis)
-    }else if x == "14" {
-      fmt.Println("#",game[13].Number,game[13].Name,"hours played:",game[13].Hrs,"\n","genre:",game[13].Genre,"\n","synopsis:",game[13].Synopsis)
-    }else if x == "15" {
-      fmt.Println("#",game[14].Number,game[14].Name,"hours played:",game[14].Hrs,"\n","genre:",game[14].Genre,"\n","synopsis:",game[14].Synopsis)
-    }else if x == "16" {
-      fmt.Println("#",game[15].Number,game[15].Name,"hours played:",game[15].Hrs,"\n","genre:",game[15].Genre,"\n","synopsis:",game[15].Synopsis)
-    }else if x == "17" {
-      fmt.Println("#",game[16].Number,game[16].Name,"hours played:",game[16].Hrs,"\n","genre:",game[16].Genre,"\n","synopsis:",game[16].Synopsis)
-    }else if x == "18" {
-      fmt.Println("#",game[17].Number,game[17].Name,"hours played:",game[17].Hrs,"\n","genre:",game[17].Genre,"\n","synopsis:",game[17].Synopsis)
-    }else if x == "19" {
-      fmt.Println("#",game[18].Number,game[18].Name,"hours played:",game[18].Hrs,"\n","genre:",game[18].Genre,"\n","synopsis:",game[18].Synopsis)
-    }else if x == "20" {
-      fmt.Println("#",game[19].Number,game[19].Name,"hours played:",game[19].Hrs,"\n","genre:",game[19].Genre,"\n","synopsis:",game[19].Synopsis)
-    }else if x == "21" {
-      fmt.Println("#",game[20].Number,game[20].Name,"hours played:",game[20].Hrs,"\n","genre:",game[20].Genre,"\n","synopsis:",game[20].Synopsis)
-    }else if x == "22" {
-      fmt.Println("#",game[21].Number,game[21].Name,"hours played:",game[21].Hrs,"\n","genre:",game[21].Genre,"\n","synopsis:",game[21].Synopsis)
-    }else if x == "23" {
-      fmt.Println("#",game[22].Number,game[22].Name,"hours played:",game[22].Hrs,"\n","genre:",game[22].Genre,"\n","synopsis:",game[22].Synopsis)
-    }else if x == "24" {
-      fmt.Println("#",game[23].Number,game[23].Name,"hours played:",game[23].Hrs,"\n","genre:",game[23].Genre,"\n","synopsis:",game[23].Synopsis)
-    }else if x == "25" {
-      fmt.Println("#",game[24].Number,game[24].Name,"hours played:",game[24].Hrs,"\n","genre:",game[24].Genre,"\n","synopsis:",game[24].Synopsis)
-    }
-    
+     l= l+1
      // prompt for new selection after appropriate info displayed before repeating loop or ending program
     for i:=0; i<=24; i++{
      fmt.Println(game[i].Number, game[i].Name)
     }
     fmt.Scanln(&x)
-    }
+    x = strings.Title(x)
+    fmt.Println(x)
+   }
+
+  }
 
    fmt.Println("Thank you for using my program to learn about my top games. I hope one or more of these has sparked your interest and you get a chance to experience these great games.")  
 
