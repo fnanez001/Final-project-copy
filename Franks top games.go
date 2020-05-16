@@ -225,8 +225,9 @@ func main (){
  
  // create a variable for loop to use as a counter
  l := 0
- // inside main: create loop that continues until user types "done"as selection or some itteration to complete program.
+ 
  for x != "Done"{
+   // inside main: create loop that continues until user types "done"as selection or some itteration to complete program.
    for i :=0; i<=24; i++{ 
     if x == "Random"{
      X := randPick(x)
@@ -235,6 +236,8 @@ func main (){
     }else if x == game[i].Number{
       fmt.Println("#",game[l].Number,game[l].Name,"hours played:",game[l].Hrs,"\n","genre:",game[l].Genre,"\n","synopsis:",game[l].Synopsis)
       i=25
+    }else {
+      i = 25
     }
      l= l+1
      // prompt for new selection after appropriate info displayed before repeating loop or ending program
