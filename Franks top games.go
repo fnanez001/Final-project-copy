@@ -221,7 +221,6 @@ func main (){
  fmt.Scanln(&x)
  // convert answer to title to take any answer and make sure it reads the same everytime.
  x = strings.Title(x)
- fmt.Println(x)
  
  // create a variable for loop to use as a counter
  l := 0
@@ -236,18 +235,18 @@ func main (){
     }else if x == game[i].Number{
       fmt.Println("#",game[l].Number,game[l].Name,"hours played:",game[l].Hrs,"\n","genre:",game[l].Genre,"\n","synopsis:",game[l].Synopsis)
       i=25
-    }else {
+    }else if x == "Done" {
       i = 25
     }
      l= l+1
-     // prompt for new selection after appropriate info displayed before repeating loop or ending program
-    for i:=0; i<=24; i++{
+     
+   }
+   // prompt for new selection after appropriate info displayed before repeating loop or ending program
+   for i:=0; i<=24; i++{
      fmt.Println(game[i].Number, game[i].Name)
     }
     fmt.Scanln(&x)
     x = strings.Title(x)
-    fmt.Println(x)
-   }
 
   }
 
